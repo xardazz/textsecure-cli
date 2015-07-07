@@ -213,6 +213,11 @@ class Manager {
         SignedPreKeyRecord signedPreKeyRecord = generateSignedPreKey(axolotlStore.getIdentityKeyPair());
 
         accountManager.setPreKeys(axolotlStore.getIdentityKeyPair().getPublicKey(), lastResortKey, signedPreKeyRecord, oneTimePreKeys);
+        try {
+            accountManager.setWebSocketChannelEnabled(true);
+        } catch (Exception e) {
+            System.out.println("Failed to enable websocket channel: " + e.getMessage());
+        }
     }
 
     public void sendMessage(List<TextSecureAddress> recipients, TextSecureDataMessage message)

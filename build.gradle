@@ -8,6 +8,7 @@ mainClassName = 'cli.Main'
 version = '0.0.4'
 
 repositories {
+    mavenLocal()
     mavenCentral()
 }
 
